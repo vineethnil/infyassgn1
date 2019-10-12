@@ -1,0 +1,88 @@
+#outer_cntr{
+	text-align: center;
+	position: relative;
+	padding: 20px 0px;
+}
+
+#outer_cntr h3{
+	font-weight: bold;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+#outer_cntr .tableboxContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 20px auto;
+}
+
+#outer_cntr .tableboxContainer .tableBox {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  text-align: left;
+  align-items: center;
+  flex: 1;
+  padding:10px;
+  border: 1px solid #000000;
+}
+#outer_cntr .tableboxContainer .tableBox h5{
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 2px;
+}
+#outer_cntr .tableboxContainer .tableBox ul{
+	list-style: none;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+}
+#outer_cntr .tableboxContainer .tableBox ul li{
+	display: block;
+	padding: 0px 20px;
+	padding-bottom: 5px;
+}
+#outer_cntr .tableboxContainer .tableBox input, #outer_cntr .tableboxContainer .tableBox textarea{
+	width: 100%;
+	padding: 5px;
+	margin-top: 4px;
+}
+#outer_cntr .tableboxContainer .tableBox select{
+	width: 100%;
+	padding: 5px;
+	margin-top: 4px; 
+}
+
+#outer_cntr .tableboxContainer .tableBox label{
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 14px;
+}
+#outer_cntr .tableboxContainer .tableBox p{
+	padding: 5px;
+	padding-left: 0px;
+	margin: 0px;
+	margin-top: 4px; 
+}
+
+#outer_cntr .populatebtn{
+	margin: 0px auto;
+	margin-top: 40px;
+	width: 100px;
+	padding: 6px;
+	font-weight: 500;
+	cursor: pointer;
+	background: #ffffff;
+	color: #000000;
+	text-transform: uppercase;
+	border: 1px solid #000000;
+	transition: all 0.5s;
+}
+
+#outer_cntr .populatebtn:hover{
+	background: #000000;
+	color: #ffffff;
+}
