@@ -11,7 +11,6 @@ class ScreenOne extends React.Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.populatetablecontent = this.populatetablecontent.bind(this);
-		this.mySwitchFunction = this.mySwitchFunction.bind(this);
 	}
 
 	//Intial Call
@@ -40,8 +39,6 @@ class ScreenOne extends React.Component {
 			tabletwocontent:this.state.tableonecontent
 		})
 	}
-
-	mySwitchFunction(param){}
 
 
 	render() {
