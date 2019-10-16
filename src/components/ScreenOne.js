@@ -11,21 +11,21 @@ class ScreenOne extends React.Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.populatetablecontent = this.populatetablecontent.bind(this);
+		this.mySwitchFunction = this.mySwitchFunction.bind(this);
 	}
 
 	//Intial Call
 	componentDidMount(){
-		let screen = this.props.location.pathname;
 		this.setState({
 			tableonecontent:this.props.tableprops,
-			screenName:screen.replace("/", "")===""?"Screen1":screen.replace("/", ""),
+			screenName:this.props.location.pathname.replace("/", "")===""?"Screen1":this.props.location.pathname.replace("/", ""),
 		})
 	}
 
 
 	//onchange for inputs
 	handleChange(index,e){
-		let contentCopy = JSON.parse(JSON.stringify(this.state.tableonecontent));
+		const contentCopy = JSON.parse(JSON.stringify(this.state.tableonecontent));
 		//make changes to value
 		contentCopy[index].value = e.target.value;
 		this.setState({
@@ -41,45 +41,58 @@ class ScreenOne extends React.Component {
 		})
 	}
 
+	mySwitchFunction(param){}
+
 
 	render() {
 
 		// mapping throu the content
 		const tbonecnt=this.state.tableonecontent.map((content, index) => {
-			let tableContent;
 			if (content.field === 'input') {
-			     tableContent = <input 
-								id={content.id} 
-								value={content.value}
-								type={content.type}
-								onChange={(e) => this.handleChange(index,e)}/>
+				return (
+			  		<li key={content.id}>
+			  		<label>{content.label}</label>
+				     <input 
+						id={content.id} 
+						value={content.value}
+						type={content.type}
+						onChange={(e) => this.handleChange(index,e)}/>
+					</li>
+			    );
 			} else if (content.field === 'textarea') {
-			     tableContent = <textarea 
-								id={content.id} 
-								value={content.value}
-								onChange={(e) => this.handleChange(index,e)}/>
+				return (
+			  		<li key={content.id}>
+			  		<label>{content.label}</label>
+			     	<textarea 
+						id={content.id} 
+						value={content.value}
+						onChange={(e) => this.handleChange(index,e)}/>
+					</li>
+			    );
 			} else if (content.field === 'select'){
-				const options = content.option.map((opt, index) => {
-					return (
-						<option key={index} value={opt}>{opt}</option>
-					)
-				});
-				tableContent = <select 
-								id={content.id} 
-								onChange={(e) => this.handleChange(index,e)}>
-								{options}
-							</select>
+				return (
+			  		<li key={content.id}>
+			  		<label>{content.label}</label>
+			     		<select 
+						id={content.id} 
+						onChange={(e) => this.handleChange(index,e)}>
+						{ 
+								content.option.map((opt, index) => {
+									return (
+										<option key={index} value={opt}>{opt}</option>
+									)
+								})
+						}
+						</select>
+					</li>
+			    );
+			}else{
+				return null
 			}
-
-		  return (
-		  	<li key={content.id}>
-		  		<label>{content.label}</label>
-		  		{tableContent}
-			</li>
-		  );
 		});
 
 		// mapping throu the content
+
 		const tbtwocnt=this.state.tabletwocontent.map((content, index) => {
 		  return (
 		  	<li key={content.id}>
